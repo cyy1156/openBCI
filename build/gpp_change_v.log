@@ -1,0 +1,49 @@
+﻿g++.exe : Using built-in specs.
+所在位置 C:\Users\ckgxnn\AppData\Local\Temp\ps-script-183d95e2-66db-4501-a367-2d80927c89a6.ps1:107 字符: 232
++ ... lyContinue; & 'D:\qt\Tools\mingw1310_64\bin\g++.exe' -v -DMINGW_HAS_S ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Using built-in specs.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+COLLECT_GCC=D:\qt\Tools\mingw1310_64\bin\g++.exe
+Target: x86_64-w64-mingw32
+Configured with: ../../../src/gcc-13.1.0/configure --host=x86_64-w64-mingw32 --build=x86_64-w64-mingw32 --target=x86_64
+-w64-mingw32 --prefix=/mingw64 --with-sysroot=/c/buildroot/x86_64-1310-posix-seh-msvcrt-rt_v11-rev1/mingw64 --enable-ho
+st-shared --disable-multilib --enable-languages=c,c++,fortran,lto --enable-libstdcxx-time=yes --enable-threads=posix --
+enable-libgomp --enable-libatomic --enable-lto --enable-graphite --enable-checking=release --enable-fully-dynamic-strin
+g --enable-version-specific-runtime-libs --enable-libstdcxx-filesystem-ts=yes --disable-libssp --disable-libstdcxx-pch 
+--disable-libstdcxx-debug --enable-bootstrap --disable-rpath --disable-win32-registry --disable-nls --disable-werror --
+disable-symvers --with-gnu-as --with-gnu-ld --with-arch=nocona --with-tune=core2 --with-libiconv --with-system-zlib --w
+ith-gmp=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-mpfr=/c/buildroot/prerequisites/x86_64-w64-mingw32-
+static --with-mpc=/c/buildroot/prerequisites/x86_64-w64-mingw32-static --with-isl=/c/buildroot/prerequisites/x86_64-w64
+-mingw32-static --with-pkgversion='x86_64-posix-seh-rev1, Built by MinGW-Builds project' --with-bugurl=https://github.c
+om/niXman/mingw-builds CFLAGS='-O2 -pipe -fno-ident -I/c/buildroot/x86_64-1310-posix-seh-msvcrt-rt_v11-rev1/mingw64/opt
+/include -I/c/buildroot/prerequisites/x86_64-zlib-static/include -I/c/buildroot/prerequisites/x86_64-w64-mingw32-static
+/include' CXXFLAGS='-O2 -pipe -fno-ident -I/c/buildroot/x86_64-1310-posix-seh-msvcrt-rt_v11-rev1/mingw64/opt/include -I
+/c/buildroot/prerequisites/x86_64-zlib-static/include -I/c/buildroot/prerequisites/x86_64-w64-mingw32-static/include' C
+PPFLAGS=' -I/c/buildroot/x86_64-1310-posix-seh-msvcrt-rt_v11-rev1/mingw64/opt/include -I/c/buildroot/prerequisites/x86_
+64-zlib-static/include -I/c/buildroot/prerequisites/x86_64-w64-mingw32-static/include' LDFLAGS='-pipe -fno-ident -L/c/b
+uildroot/x86_64-1310-posix-seh-msvcrt-rt_v11-rev1/mingw64/opt/lib -L/c/buildroot/prerequisites/x86_64-zlib-static/lib -
+L/c/buildroot/prerequisites/x86_64-w64-mingw32-static/lib ' LD_FOR_TARGET=/c/buildroot/x86_64-1310-posix-seh-msvcrt-rt_
+v11-rev1/mingw64/bin/ld.exe --with-boot-ldflags=' -Wl,--disable-dynamicbase -static-libstdc++ -static-libgcc'
+Thread model: posix
+Supported LTO compression algorithms: zlib
+gcc version 13.1.0 (x86_64-posix-seh-rev1, Built by MinGW-Builds project) 
+COLLECT_GCC_OPTIONS='-fdiagnostics-color=never' '-v' '-D' 'MINGW_HAS_SECURE_API=1' '-D' 'QT_CORE_LIB' '-D' 'QT_GUI_LIB'
+ '-D' 'QT_NEEDS_QMAIN' '-D' 'QT_WIDGETS_LIB' '-D' 'UNICODE' '-D' 'WIN32' '-D' 'WIN64' '-D' '_ENABLE_EXTENDED_ALIGNED_ST
+ORAGE' '-D' '_UNICODE' '-D' '_WIN64' '-I' 'D:\360MoveData\Users\ckgxnn\Desktop\QtBCI\QtBCI\build\Desktop_Qt_6_10_2_MinG
+W_64_bit-Debug\QtBCI_autogen\include' '-I' 'D:\360MoveData\Users\ckgxnn\Desktop\QtBCI\QtBCI\thinkgear' '-isystem' 'D:\q
+t\6.10.2\mingw_64\include\QtCore' '-isystem' 'D:\qt\6.10.2\mingw_64\include' '-isystem' 'D:\qt\6.10.2\mingw_64\mkspecs\
+win32-g++' '-isystem' 'D:\qt\6.10.2\mingw_64\include\QtWidgets' '-isystem' 'D:\qt\6.10.2\mingw_64\include\QtGui' '-D' '
+QT_QML_DEBUG' '-g' '-c' '-o' 'D:\360MoveData\Users\ckgxnn\Desktop\QtBCI\QtBCI\build\temp_dbg.o' '-shared-libgcc' '-mtun
+e=core2' '-march=nocona' '-dumpdir' 'D:\360MoveData\Users\ckgxnn\Desktop\QtBCI\QtBCI\build\'
+ D:/qt/Tools/mingw1310_64/bin/../libexec/gcc/x86_64-w64-mingw32/13.1.0/cc1plus.exe -quiet -v -I D:\360MoveData\Users\ck
+gxnn\Desktop\QtBCI\QtBCI\build\Desktop_Qt_6_10_2_MinGW_64_bit-Debug\QtBCI_autogen\include -I D:\360MoveData\Users\ckgxn
+n\Desktop\QtBCI\QtBCI\thinkgear -iprefix D:/qt/Tools/mingw1310_64/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/ -D_REENTRAN
+T -D MINGW_HAS_SECURE_API=1 -D QT_CORE_LIB -D QT_GUI_LIB -D QT_NEEDS_QMAIN -D QT_WIDGETS_LIB -D UNICODE -D WIN32 -D WIN
+64 -D _ENABLE_EXTENDED_ALIGNED_STORAGE -D _UNICODE -D _WIN64 -D QT_QML_DEBUG -isystem D:\qt\6.10.2\mingw_64\include\QtC
+ore -isystem D:\qt\6.10.2\mingw_64\include -isystem D:\qt\6.10.2\mingw_64\mkspecs\win32-g++ -isystem D:\qt\6.10.2\mingw
+_64\include\QtWidgets -isystem D:\qt\6.10.2\mingw_64\include\QtGui D:\360MoveData\Users\ckgxnn\Desktop\QtBCI\QtBCI\stre
+am_sdk_for_pc\test_stream_for_pc_change.cpp -quiet -dumpdir D:\360MoveData\Users\ckgxnn\Desktop\QtBCI\QtBCI\build\ -dum
+pbase temp_dbg.cpp -dumpbase-ext .cpp -mtune=core2 -march=nocona -g -version -fdiagnostics-color=never -o C:\Users\ckgx
+nn\AppData\Local\Temp\ccuAs8pd.s

@@ -1,5 +1,8 @@
 #include "mainwindow.h"
-#include"thinkgear.h"
+#include "stream_sdk_for_pc/stream_sdk_for_pc.h"
+#include "thinkgear.h"
+#include <QObject>
+#include <array>
 #include <QApplication>
 #include <QDebug>
 #include <iostream>
@@ -7,7 +10,10 @@
 #include <cstdlib>
 #include <ctime>
 #include <QDateTime>
-void wait()
+#include <limits>
+#include <cmath>
+#include <cstdint>
+/*void wait()
 {
     std::cout<<"\n";
     std::cout<<"Press the ENTER key...\n"<<std::flush;
@@ -15,12 +21,17 @@ void wait()
     std::cin.get();
 
 }
+double ADCtoMicroV(short rawADC)
+{
+    // 官方公式：原始ADC计数 → 微伏 μV
+    return rawADC * 0.22;
+}
 int main(int argc, char *argv[])
 {
-    /*QApplication a(argc, argv);
+    QApplication a(argc, argv);
     MainWindow w;
     w.show();
-    return a.exec();*/
+    return a.exec();
     char* comPortName =NULL;
     int dllVersion =0;
     int connectionId=0;
@@ -28,7 +39,8 @@ int main(int argc, char *argv[])
     int errCode=0;
 
     double secondsToRun=0;
-    time_t startTime =0;
+    time_t startTime1 =0;
+    time_t startTime2 =0;
     time_t currTime =0;
     QString currTimeStr=NULL;
     int set_filter_falg=0;
@@ -59,13 +71,15 @@ int main(int argc, char *argv[])
         return -1;
     }
     secondsToRun=5;
-    startTime=time(nullptr);
+    startTime1=time(nullptr);
     int rawport[513];
-
-    while(difftime(time(nullptr),startTime)<secondsToRun)
+    qDebug()<<"读一个包解析一次";
+    while(difftime(time(nullptr),startTime1)<secondsToRun)
     {
 
-             packetsRead=TG_ReadPackets(connectionId,1);
+
+
+             packetsRead=TG_ReadPackets(connectionId,1);//每次只解析一个
             if(packetsRead==1)
 
              {
@@ -81,10 +95,11 @@ int main(int argc, char *argv[])
                     QDateTime now=QDateTime::currentDateTime();
                     currTimeStr= now.toString(Qt::TextDate);
                     double v=TG_GetValue(connectionId,TG_DATA_RAW);
-                    short raw=(short)v;
+                    short raw=(short)v;//符号是ADC不是电压值
+                    double rawvalue=ADCtoMicroV(raw);
                     //rawport[count++]=(int)raw;
                     count++;
-                    qDebug()<<count<<"|"<<currTimeStr<<"|"<<"原始信号"<<raw;
+                    qDebug()<<count<<"|"<<currTimeStr<<"|"<<"原始信号(μV)"<<rawvalue;
                  }
 
 
@@ -101,14 +116,231 @@ int main(int argc, char *argv[])
                  {
                      count=0;
                  }
+                 if (TG_GetValueStatus(connectionId, TG_DATA_DELTA) != 0) {
+                     //相对功率（自己与自己比）
+                     uint32_t delta      = static_cast<uint32_t>(TG_GetValue(connectionId, TG_DATA_DELTA));
+                     uint32_t theta      = static_cast<uint32_t>(TG_GetValue(connectionId, TG_DATA_THETA));
+                     uint32_t lowAlpha   = static_cast<uint32_t>(TG_GetValue(connectionId, TG_DATA_ALPHA1));
+                     uint32_t highAlpha  = static_cast<uint32_t>(TG_GetValue(connectionId, TG_DATA_ALPHA2));
+                     uint32_t lowBeta    = static_cast<uint32_t>(TG_GetValue(connectionId, TG_DATA_BETA1));
+                     uint32_t highBeta   = static_cast<uint32_t>(TG_GetValue(connectionId, TG_DATA_BETA2));
+                     uint32_t lowGamma   = static_cast<uint32_t>(TG_GetValue(connectionId, TG_DATA_GAMMA1));
+                     uint32_t middleGamma= static_cast<uint32_t>(TG_GetValue(connectionId, TG_DATA_GAMMA2));
+                     qDebug() << "EEG Power(dec):"
+                              << "Delta（频率范围0.5–2.75 Hz）" << delta
+                              << "Theta（频率范围3.5–6.75 Hz	）" << theta
+                              << "LowAlpha（频率范围7.5–9.25 Hz）" << lowAlpha
+                              << "HighAlpha（频率范围10–11.75 Hz	）" << highAlpha
+                              << "LowBeta（频率范围13–16.75 Hz	）" << lowBeta
+                              << "HighBeta（频率范围18–29.75 Hz）" << highBeta
+                              << "LowGamma（频率范围31–39.75 Hz）" << lowGamma
+                              << "MiddleGamma（频率范围41–49.75 Hz）" << middleGamma;
+                 }
             }
 
 
 
     }
 
+    int atuoraw[513];
+    startTime2=time(nullptr);
+    qDebug()<<"尽可能的读包";
+    while(difftime(time(nullptr),startTime2)<secondsToRun)
+    {
+
+        packetsRead=TG_ReadPackets(connectionId,-1);//尽可能的读
+
+        if(packetsRead>0)
+
+        {
+            if(count<512){
+            if(TG_GetValueStatus(connectionId,TG_DATA_RAW)!=0)
+            {
+                QDateTime now=QDateTime::currentDateTime();
+                currTimeStr= now.toString(Qt::TextDate);
+                double v=TG_GetValue(connectionId,TG_DATA_RAW);
+                short raw=(short)v;
+                //rawport[count++]=(int)raw;
+                count++;
+                qDebug()<<count<<"|"<<currTimeStr<<"|"<<"原始信号"<<raw;
+            }
+
+            }
+
+            if(count=512){
+            if (TG_GetValueStatus(connectionId, TG_DATA_POOR_SIGNAL) != 0) {
+                short signal = (short)TG_GetValue(connectionId, TG_DATA_POOR_SIGNAL);
+                qDebug()<<"信号质量"<<signal;
+            }
+
+            if(TG_GetValueStatus(connectionId,TG_DATA_ATTENTION)!=0){
+
+                short ATT = (short)TG_GetValue(connectionId, TG_DATA_ATTENTION);
+                qDebug()<<"专注度Attention(值在0-100)"<<ATT;
+            }
+            if (TG_GetValueStatus(connectionId, TG_DATA_MEDITATION) != 0) {
+                short med = (short)TG_GetValue(connectionId, TG_DATA_MEDITATION);
+                qDebug()<<"放松度Meditation值(0到100之间)"<<med;
+            }
+
+            if (TG_GetValueStatus(connectionId, TG_DATA_DELTA) != 0) {
+                double delta = (double)TG_GetValue(connectionId, TG_DATA_DELTA);
+                qDebug()<<"delta的值"<<delta;
+            }
+            if (TG_GetValueStatus(connectionId, TG_DATA_THETA) != 0) {
+                double theta = (double)TG_GetValue(connectionId, TG_DATA_THETA);
+                qDebug()<<"theta的值"<<theta;
+            }
+            if (TG_GetValueStatus(connectionId, TG_DATA_ALPHA1) != 0) {
+                double alpha1 = (double)TG_GetValue(connectionId, TG_DATA_ALPHA1);
+                qDebug()<<"low alphal的值"<<alpha1;
+            }
+            if (TG_GetValueStatus(connectionId, TG_DATA_ALPHA2) != 0) {
+                double alpha2 = (double)TG_GetValue(connectionId, TG_DATA_ALPHA2);
+                qDebug()<<"height alphal的值"<<alpha2;
+            }
+            if (TG_GetValueStatus(connectionId, TG_DATA_BETA1) != 0) {
+                double beta1 = (double)TG_GetValue(connectionId, TG_DATA_BETA1);
+                qDebug()<<"low betal的值"<<beta1;
+            }
+            if (TG_GetValueStatus(connectionId, TG_DATA_BETA2) != 0) {
+                double beta2 = (double)TG_GetValue(connectionId, TG_DATA_BETA2);
+                qDebug()<<"height betal的值"<<beta2;
+            }
+            if (TG_GetValueStatus(connectionId, TG_DATA_GAMMA1) != 0) {
+                double GAMMA1 = (double)TG_GetValue(connectionId, TG_DATA_GAMMA1);
+                qDebug()<<"low gamma的值"<<GAMMA1;
+            }
+            if (TG_GetValueStatus(connectionId, TG_DATA_GAMMA2) != 0) {
+                double GAMMA2 = (double)TG_GetValue(connectionId, TG_DATA_GAMMA2);
+                qDebug()<<"height gamma的值"<<GAMMA2;
+            }
+                count=0;
+
+        }
+    }
+
+    }
+
+
+
+
     qDebug()<<"数据收集完成";
+    TG_Disconnect(connectionId);
     TG_FreeConnection(connectionId);
 
     return 0;
+}*/
+enum class Band : int {
+    Delta = 0,
+    Theta,
+    Alpha1,
+    Alpha2,
+    Beta1,
+    Beta2,
+    Gamma1,
+    Gamma2,
+    Count
+};
+
+struct EegFrame {
+    std::array<double, static_cast<int>(Band::Count)> band{}; // 默认全 0
+    double raw = 0.0;   // μV
+    short signal = 0;
+    short att = 0;
+    short med = 0;
+};
+int main(int argc, char *argv[])
+
+{
+    double secondsToRun = 5;
+    time_t startTime1 = time(nullptr);
+    QString currTimeStr;
+    int count = 0; // RAW 样本计数
+    int noPacketRounds = 0;
+
+    Stream_sdk_for_pc* in = new Stream_sdk_for_pc();
+    EegFrame eeg;
+    char defaultComPort[] = "COM7";
+    char* comPortName = (argc > 1 && argv[1] && argv[1][0] != '\0') ? argv[1] : defaultComPort;
+    int serialBaudrate = TG_BAUD_57600;
+    int serialDataFormat = TG_STREAM_PACKETS;
+
+    if (!in->Init(comPortName, serialBaudrate, serialDataFormat)) {
+        qDebug() << "初始化失败，请确认串口是否正确。可用方式：程序名 COMx";
+        delete in;
+        return -1;
+    }
+    qDebug() << "当前串口:" << comPortName;
+
+    while (difftime(time(nullptr), startTime1) < secondsToRun)
+    {
+        if( !(in->ReadOnePackage()))
+        {
+            count++;
+            QDateTime now = QDateTime::currentDateTime();
+            currTimeStr = now.toString(Qt::TextDate);
+            qDebug()<<count<< "|" << currTimeStr << "|"<<"丢包";
+
+            }
+
+        // 1) RAW：有更新才计数
+        if (in->GetRawValue(eeg.raw)) {
+            noPacketRounds = 0;
+            QDateTime now = QDateTime::currentDateTime();
+            currTimeStr = now.toString(Qt::TextDate);
+            ++count;
+            qDebug() << count << "|" << currTimeStr << "|" << "原始信号(μV)" << eeg.raw;
+        } else {
+            ++noPacketRounds;
+            if (noPacketRounds % 500 == 0) {
+                //qDebug() << "尚未读到RAW数据，请检查设备佩戴、电极接触和串口号。当前串口:" << comPortName;
+            }
+        }
+
+        // 2) 大包字段：按状态位更新，避免“恰好第513次时未更新”导致全 0
+        bool gotBigField = false;
+        if (in->GetSingal(eeg.signal)) gotBigField = true;
+        if (in->GetATT(eeg.att)) gotBigField = true;
+        if (in->GetMed(eeg.med)) gotBigField = true;
+
+        uint32_t v = 0;
+        if (in->GetDelta(v))       { eeg.band[(int)Band::Delta] = v; gotBigField = true; }
+        if (in->Gettheta(v))       { eeg.band[(int)Band::Theta] = v; gotBigField = true; }
+        if (in->GetLowAlphal(v))   { eeg.band[(int)Band::Alpha1] = v; gotBigField = true; }
+        if (in->GetHeightAlphal(v)){ eeg.band[(int)Band::Alpha2] = v; gotBigField = true; }
+        if (in->GetLowbeta(v))     { eeg.band[(int)Band::Beta1] = v; gotBigField = true; }
+        if (in->GetHeightbeta(v))  { eeg.band[(int)Band::Beta2] = v; gotBigField = true; }
+        if (in->GetLowGamma(v))    { eeg.band[(int)Band::Gamma1] = v; gotBigField = true; }
+        if (in->GetMiddleGame(v))  { eeg.band[(int)Band::Gamma2] = v; gotBigField = true; }
+
+        if (gotBigField) {
+            QDateTime now = QDateTime::currentDateTime();
+            currTimeStr = now.toString(Qt::TextDate);
+            qDebug() << "---- 大包字段更新 ----" << currTimeStr;
+            qDebug() << "信号质量(0-200)" << eeg.signal<<"\n"
+                     << "| Attention(0-100)" << eeg.att<<"\n"
+                     << "| Meditation(0-100)" << eeg.med;
+
+            qDebug() << "EEG Power(dec):"<<"\n"
+                     << "Delta（频率范围0.5–2.75 Hz" << eeg.band[(int)Band::Delta]<<"\n"
+                     <<  "Theta（频率范围3.5–6.75 Hz）" << eeg.band[(int)Band::Theta]<<"\n"
+                     << "LowAlpha（频率范围7.5–9.25 Hz）" << eeg.band[(int)Band::Alpha1]<<"\n"
+                     << "HighAlpha（频率范围10–11.75 Hz	）" << eeg.band[(int)Band::Alpha2]<<"\n"
+                     << "LowBeta（频率范围13–16.75 Hz	）" << eeg.band[(int)Band::Beta1]<<"\n"
+                     << "HighBeta（频率范围18–29.75 Hz）" << eeg.band[(int)Band::Beta2]<<"\n"
+                     << "LowGamma（频率范围31–39.75 Hz）" << eeg.band[(int)Band::Gamma1]<<"\n"
+                     << "MiddleGamma（频率范围41–49.75 Hz）" << eeg.band[(int)Band::Gamma2];
+        }
+        if(count==513)
+        {
+            count=0;
+        }
+    }
+
+    qDebug() << "数据收集完成";
+    delete in;
+
+    return 0;
 }
+

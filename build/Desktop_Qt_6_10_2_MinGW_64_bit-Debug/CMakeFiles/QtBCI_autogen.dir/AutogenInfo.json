@@ -268,6 +268,16 @@
 		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets-relwithdebinfo.cmake",
 		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginAdditionalTargetInfo.cmake",
 		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersion.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersionImpl.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfig.cmake",
+		"D:/qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportDependencies.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargets.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargets-relwithdebinfo.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportAdditionalTargetInfo.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportPlugins.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportVersionlessAliasTargets.cmake",
 		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake",
 		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake",
 		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
@@ -325,9 +335,33 @@
 	"HEADERS" : 
 	[
 		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/QCustomPlot/qcustomplot.h",
+			"MU",
+			"WYEPPNPBOE/moc_qcustomplot.cpp",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/databuffer.h",
+			"MU",
+			"TAC5DWH4SE/moc_databuffer.cpp",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/logworker.h",
+			"MU",
+			"TAC5DWH4SE/moc_logworker.cpp",
+			null
+		],
+		[
 			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/stream_sdk_for_pc/stream_sdk_for_pc.h",
+			"MU",
+			"O5CLXGGA5R/moc_stream_sdk_for_pc.cpp",
 			null
 		],
 		[
@@ -346,6 +380,7 @@
 		"QT_CORE_LIB",
 		"QT_GUI_LIB",
 		"QT_NEEDS_QMAIN",
+		"QT_PRINTSUPPORT_LIB",
 		"QT_WIDGETS_LIB",
 		"UNICODE",
 		"WIN32",
@@ -363,12 +398,14 @@
 	],
 	"MOC_INCLUDES" : 
 	[
+		"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI",
 		"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/thinkgear",
 		"D:/qt/6.10.2/mingw_64/include/QtCore",
 		"D:/qt/6.10.2/mingw_64/include",
 		"D:/qt/6.10.2/mingw_64/mkspecs/win32-g++",
 		"D:/qt/6.10.2/mingw_64/include/QtWidgets",
 		"D:/qt/6.10.2/mingw_64/include/QtGui",
+		"D:/qt/6.10.2/mingw_64/include/QtPrintSupport",
 		"D:/qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++",
 		"D:/qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32",
 		"D:/qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward",
@@ -385,11 +422,12 @@
 		"Q_GADGET_EXPORT",
 		"Q_ENUM_NS"
 	],
-	"MOC_OPTIONS" : [ "-DWIN32" ],
+	"MOC_OPTIONS" : [],
 	"MOC_PATH_PREFIX" : false,
 	"MOC_PREDEFS_CMD" : 
 	[
 		"D:/qt/Tools/mingw1310_64/bin/g++.exe",
+		"-std=gnu++17",
 		"-dM",
 		"-E",
 		"-c",
@@ -409,12 +447,32 @@
 	"SOURCES" : 
 	[
 		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/QCustomPlot/qcustomplot.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/databuffer.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/logworker.cpp",
+			"MU",
+			null
+		],
+		[
 			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/main.cpp",
 			"MU",
 			null
 		],
 		[
 			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/mainwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/stream_sdk_for_pc/stream_sdk_for_pc.cpp",
 			"MU",
 			null
 		]

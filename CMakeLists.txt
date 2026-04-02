@@ -1,23 +1,42 @@
 cmake_minimum_required(VERSION 3.19)
 project(QtBCI LANGUAGES CXX)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets)
+find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets PrintSupport)
 
 qt_standard_project_setup()
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 qt_add_executable(QtBCI
+    MANUAL_FINALIZATION
     WIN32 MACOSX_BUNDLE
     main.cpp
     mainwindow.cpp
     mainwindow.h
     mainwindow.ui
     thinkgear/thinkgear.h
+
+    core/databuffer.h core/databuffer.cpp
+    QCustomPlot/qcustomplot.cpp QCustomPlot/qcustomplot.h
+    stream_sdk_for_pc/stream_sdk_for_pc.cpp stream_sdk_for_pc/stream_sdk_for_pc.h
+    core/logworker.h core/logworker.cpp
 )
+
+# QCustomPlot 的翻译单元非常大，在 MinGW 下容易触发 "too many sections / file too big"。
+# 只对该源文件加编译器参数，避免影响 AutoMOC / 预定义宏生成（仅 MinGW）。
+if(MINGW)
+    set_source_files_properties(
+        QCustomPlot/qcustomplot.cpp
+        PROPERTIES COMPILE_FLAGS "-Wa,-mbig-obj"
+    )
+endif()
 
 target_link_libraries(QtBCI
     PRIVATE
         Qt::Core
         Qt::Widgets
+        Qt::PrintSupport
 )
 
 #
@@ -74,6 +93,7 @@ endif()
 
 target_include_directories(QtBCI
     PRIVATE
+        "${CMAKE_CURRENT_SOURCE_DIR}"
         "${THINKGEAR_INC_DIR}"
 )
 
@@ -87,6 +107,10 @@ add_custom_command(TARGET QtBCI POST_BUILD
         "${THINKGEAR_DLL}"
         "$<TARGET_FILE_DIR:QtBCI>"
 )
+
+if(QT_VERSION_MAJOR EQUAL 6)
+    qt_finalize_executable(QtBCI)
+endif()
 
 include(GNUInstallDirs)
 
