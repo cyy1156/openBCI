@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.19)
 project(QtBCI LANGUAGES CXX)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets PrintSupport)
+find_package(Qt6 6.5 REQUIRED COMPONENTS Core Widgets SerialPort PrintSupport)
 
 qt_standard_project_setup()
 
@@ -17,10 +17,20 @@ qt_add_executable(QtBCI
     mainwindow.ui
     thinkgear/thinkgear.h
 
-    core/databuffer.h core/databuffer.cpp
+    core/pictureandalgbuffer.h core/pictureandalgbuffer.cpp
     QCustomPlot/qcustomplot.cpp QCustomPlot/qcustomplot.h
     stream_sdk_for_pc/stream_sdk_for_pc.cpp stream_sdk_for_pc/stream_sdk_for_pc.h
-    core/logworker.h core/logworker.cpp
+    core/logwbuffer.h core/logwbuffer.cpp
+    stream_sdk_for_pc/origintest.h stream_sdk_for_pc/origintest.cpp
+    stream_sdk_for_pc/changetest.h stream_sdk_for_pc/changetest.cpp
+    stream_sdk_for_pc/threadteast.h stream_sdk_for_pc/threadteast.cpp
+    device/serialport.h device/serialport.cpp
+    thinkgear/thinkgearframeassembler.h thinkgear/thinkgearframeassembler.cpp
+    thinkgear/thinkgearpayloadparser.h thinkgear/thinkgearpayloadparser.cpp
+    thinkgear/rawtouvprocessor.h thinkgear/rawtouvprocessor.cpp
+    thinkgear/thinkgearlinktester.h thinkgear/thinkgearlinktester.cpp
+
+
 )
 
 # QCustomPlot 的翻译单元非常大，在 MinGW 下容易触发 "too many sections / file too big"。
@@ -36,6 +46,7 @@ target_link_libraries(QtBCI
     PRIVATE
         Qt::Core
         Qt::Widgets
+        Qt::SerialPort
         Qt::PrintSupport
 )
 

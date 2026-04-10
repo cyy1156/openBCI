@@ -322,6 +322,9 @@ Qt6Gui_DIR:PATH=D:/qt/6.10.2/mingw_64/lib/cmake/Qt6Gui
 //The directory containing a CMake configuration file for Qt6PrintSupport.
 Qt6PrintSupport_DIR:PATH=D:/qt/6.10.2/mingw_64/lib/cmake/Qt6PrintSupport
 
+//The directory containing a CMake configuration file for Qt6SerialPort.
+Qt6SerialPort_DIR:PATH=D:/qt/6.10.2/mingw_64/lib/cmake/Qt6SerialPort
+
 //The directory containing a CMake configuration file for Qt6WidgetsTools.
 Qt6WidgetsTools_DIR:PATH=D:/qt/6.10.2/mingw_64/lib/cmake/Qt6WidgetsTools
 
@@ -958,6 +961,8 @@ QT_FEATURE_network:INTERNAL=ON
 QT_FEATURE_no_direct_extern_access:INTERNAL=OFF
 //Qt feature: no_pkg_config (from target Qt6::Core)
 QT_FEATURE_no_pkg_config:INTERNAL=ON
+//Qt feature: ntddmodm (from target Qt6::SerialPort)
+QT_FEATURE_ntddmodm:INTERNAL=OFF
 //Qt feature: opengl (from target Qt6::Gui)
 QT_FEATURE_opengl:INTERNAL=ON
 //Qt feature: opengles2 (from target Qt6::Gui)

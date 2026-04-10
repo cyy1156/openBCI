@@ -430,6 +430,7 @@
 #define __INT32_MAX__ 0x7fffffff
 #define __UINT_FAST32_TYPE__ unsigned int
 #define _ENABLE_EXTENDED_ALIGNED_STORAGE 1
+#define QT_SERIALPORT_LIB 1
 #define __FLT16_MANT_DIG__ 11
 #define __FLT32X_NORM_MAX__ 1.79769313486231570814527423731704357e+308F32x
 #define __CHAR32_TYPE__ unsigned int

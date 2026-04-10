@@ -268,6 +268,15 @@
 		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets-relwithdebinfo.cmake",
 		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginAdditionalTargetInfo.cmake",
 		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsVersionlessAliasTargets.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortConfigVersion.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortConfigVersionImpl.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortConfig.cmake",
+		"D:/qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortDependencies.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortTargets.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortTargets-relwithdebinfo.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortAdditionalTargetInfo.cmake",
+		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6SerialPort/Qt6SerialPortVersionlessAliasTargets.cmake",
 		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersion.cmake",
 		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersionImpl.cmake",
 		"D:/qt/6.10.2/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfig.cmake",
@@ -341,15 +350,21 @@
 			null
 		],
 		[
-			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/databuffer.h",
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/logwbuffer.h",
 			"MU",
-			"TAC5DWH4SE/moc_databuffer.cpp",
+			"TAC5DWH4SE/moc_logwbuffer.cpp",
 			null
 		],
 		[
-			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/logworker.h",
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/pictureandalgbuffer.h",
 			"MU",
-			"TAC5DWH4SE/moc_logworker.cpp",
+			"TAC5DWH4SE/moc_pictureandalgbuffer.cpp",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/device/serialport.h",
+			"MU",
+			"GULY2SVRVA/moc_serialport.cpp",
 			null
 		],
 		[
@@ -359,15 +374,57 @@
 			null
 		],
 		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/stream_sdk_for_pc/changetest.h",
+			"MU",
+			"O5CLXGGA5R/moc_changetest.cpp",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/stream_sdk_for_pc/origintest.h",
+			"MU",
+			"O5CLXGGA5R/moc_origintest.cpp",
+			null
+		],
+		[
 			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/stream_sdk_for_pc/stream_sdk_for_pc.h",
 			"MU",
 			"O5CLXGGA5R/moc_stream_sdk_for_pc.cpp",
 			null
 		],
 		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/stream_sdk_for_pc/threadteast.h",
+			"MU",
+			"O5CLXGGA5R/moc_threadteast.cpp",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/thinkgear/rawtouvprocessor.h",
+			"MU",
+			"JDVFSHZ2BO/moc_rawtouvprocessor.cpp",
+			null
+		],
+		[
 			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/thinkgear/thinkgear.h",
 			"MU",
 			"JDVFSHZ2BO/moc_thinkgear.cpp",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/thinkgear/thinkgearframeassembler.h",
+			"MU",
+			"JDVFSHZ2BO/moc_thinkgearframeassembler.cpp",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/thinkgear/thinkgearlinktester.h",
+			"MU",
+			"JDVFSHZ2BO/moc_thinkgearlinktester.cpp",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/thinkgear/thinkgearpayloadparser.h",
+			"MU",
+			"JDVFSHZ2BO/moc_thinkgearpayloadparser.cpp",
 			null
 		]
 	],
@@ -381,6 +438,7 @@
 		"QT_GUI_LIB",
 		"QT_NEEDS_QMAIN",
 		"QT_PRINTSUPPORT_LIB",
+		"QT_SERIALPORT_LIB",
 		"QT_WIDGETS_LIB",
 		"UNICODE",
 		"WIN32",
@@ -405,6 +463,7 @@
 		"D:/qt/6.10.2/mingw_64/mkspecs/win32-g++",
 		"D:/qt/6.10.2/mingw_64/include/QtWidgets",
 		"D:/qt/6.10.2/mingw_64/include/QtGui",
+		"D:/qt/6.10.2/mingw_64/include/QtSerialPort",
 		"D:/qt/6.10.2/mingw_64/include/QtPrintSupport",
 		"D:/qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++",
 		"D:/qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32",
@@ -452,12 +511,17 @@
 			null
 		],
 		[
-			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/databuffer.cpp",
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/logwbuffer.cpp",
 			"MU",
 			null
 		],
 		[
-			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/logworker.cpp",
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/pictureandalgbuffer.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/device/serialport.cpp",
 			"MU",
 			null
 		],
@@ -472,7 +536,42 @@
 			null
 		],
 		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/stream_sdk_for_pc/changetest.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/stream_sdk_for_pc/origintest.cpp",
+			"MU",
+			null
+		],
+		[
 			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/stream_sdk_for_pc/stream_sdk_for_pc.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/stream_sdk_for_pc/threadteast.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/thinkgear/rawtouvprocessor.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/thinkgear/thinkgearframeassembler.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/thinkgear/thinkgearlinktester.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/thinkgear/thinkgearpayloadparser.cpp",
 			"MU",
 			null
 		]

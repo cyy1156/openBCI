@@ -10,7 +10,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <QDateTime>
-
+#include <core/pictureandalgbuffer.h>
 
 #include <cstdint> // uint32_t
 class Stream_sdk_for_pc : public QObject
@@ -19,6 +19,7 @@ class Stream_sdk_for_pc : public QObject
 public:
     explicit Stream_sdk_for_pc(QObject *parent = nullptr);
     ~Stream_sdk_for_pc();
+     PictureAndALgBuffer &buffer() { return data_pool; }
 public:
     bool Init(char* comPortName, int serialBaudrate, int serialDataFormat);
     bool ReadOnePackage();//每次读一个包
@@ -39,6 +40,9 @@ public:
 
 
 private:
+    PictureAndALgBuffer data_pool;
+    BigPackageSample bigpackagesample;
+    RawSample rawsample;
 
     int dllVersion =0;
     int connectionId=-3;

@@ -4,7 +4,7 @@
 Stream_sdk_for_pc::Stream_sdk_for_pc(QObject *parent)
     : QObject{parent}
 {}
-void wait()
+static void wait()
 {
     std::cout<<"\n";
     std::cout<<"Press the ENTER key...\n"<<std::flush;
@@ -12,7 +12,7 @@ void wait()
     std::cin.get();
 
 }
-double ADCtoMicroV(short rawADC)
+static double ADCtoMicroV(short rawADC)
 {
     // 官方公式：原始ADC计数 → 微伏 μV
     return rawADC * 0.22;
@@ -119,6 +119,8 @@ bool Stream_sdk_for_pc::GetRawValue(double& v)
         short raw=(short)adc;//符号是ADC不是电压值
         v = ADCtoMicroV(raw);
         return true;
+
+
     }
 
     return false;

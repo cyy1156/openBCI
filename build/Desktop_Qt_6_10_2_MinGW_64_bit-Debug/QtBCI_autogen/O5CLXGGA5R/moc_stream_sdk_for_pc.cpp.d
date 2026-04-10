@@ -1,9 +1,12 @@
 D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/QtBCI_autogen/O5CLXGGA5R/moc_stream_sdk_for_pc.cpp: D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/stream_sdk_for_pc/stream_sdk_for_pc.h \
   D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/QtBCI_autogen/moc_predefs.h \
+  D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/pictureandalgbuffer.h \
   D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/thinkgear/thinkgear.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/QDateTime \
   D:/qt/6.10.2/mingw_64/include/QtCore/QDebug \
+  D:/qt/6.10.2/mingw_64/include/QtCore/QMutex \
   D:/qt/6.10.2/mingw_64/include/QtCore/QObject \
+  D:/qt/6.10.2/mingw_64/include/QtCore/QVector \
   D:/qt/6.10.2/mingw_64/include/QtCore/q17memory.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/q20functional.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/q20iterator.h \
@@ -77,6 +80,7 @@ D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/build/Desktop_Qt_6_10_2_MinGW_64
   D:/qt/6.10.2/mingw_64/include/QtCore/qmetacontainer.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qmetatype.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qminmax.h \
+  D:/qt/6.10.2/mingw_64/include/QtCore/qmutex.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qnamespace.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qnativeinterface.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qnumeric.h \
@@ -129,6 +133,7 @@ D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/build/Desktop_Qt_6_10_2_MinGW_64
   D:/qt/6.10.2/mingw_64/include/QtCore/qtnoop.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qtpreprocessorsupport.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qtresource.h \
+  D:/qt/6.10.2/mingw_64/include/QtCore/qtsan_impl.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qttranslation.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qttypetraits.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qtversion.h \
@@ -138,6 +143,7 @@ D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/build/Desktop_Qt_6_10_2_MinGW_64
   D:/qt/6.10.2/mingw_64/include/QtCore/qutf8stringview.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qvariant.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qvarlengtharray.h \
+  D:/qt/6.10.2/mingw_64/include/QtCore/qvector.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qversiontagging.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qxptype_traits.h \
   D:/qt/6.10.2/mingw_64/include/QtCore/qyieldcpu.h \
