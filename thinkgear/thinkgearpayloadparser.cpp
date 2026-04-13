@@ -62,7 +62,7 @@ void ThinkGearPayloadParser::parsePayload(const QByteArray &payload)
             payload[i]);
         switch(code)
         {
-        case 0x02:  //信号质量
+        case 0x02:  // 信号 Signal（厂商大块 payload 中常见；范围因固件而异，如 0–200）
             if(i+1>=n)
             {
                 emit parseWarning(QStringLiteral(
@@ -99,17 +99,25 @@ void ThinkGearPayloadParser::parsePayload(const QByteArray &payload)
                 i += 2;
                 break;
          case 0x80:
-         {             //raw,大端
-             if(i+2>=n){
+         {             // RAW：高字节在前；有符号 16 位（思知/ThinkGear 类协议）
+             // 期望格式: 0x80 0x02 xxHigh xxLow
+             if (i + 3 >= n) {
                  emit parseWarning(QStringLiteral("truncated 0x80"));
                  return;
              }
-
-             const auto hi=static_cast<quint16>(static_cast<quint8>(payload[i+1]));
-             const auto lo=static_cast<quint16>(static_cast<quint8>(payload[i+2]));
-             const quint16 u=static_cast<quint16>((hi<<8|lo));
-             emit rawReceived(static_cast<qint16>(u));
-             i+=3;
+             const quint8 vlen = static_cast<quint8>(payload[i + 1]);
+             if (vlen != 0x02) {
+                 emit parseWarning(QStringLiteral("invalid 0x80 length"));
+                 //++i; // 或者直接 return，看你策略
+                return;
+             }
+             const quint8 hi = static_cast<quint8>(payload[i + 2]);
+             const quint8 lo = static_cast<quint8>(payload[i + 3]);
+             qint32 rawdata = (static_cast<qint32>(hi) << 8) | lo;
+             if (rawdata > 32767) rawdata -= 65536;
+             emit rawReceived(static_cast<qint16>(rawdata));
+             i += 4;
+             break;
 
              }
          break;

@@ -78,19 +78,19 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 128,
+				"line" : 129,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 45,
+				"line" : 46,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 111,
+				"line" : 112,
 				"parent" : 0
 			},
 			{
@@ -300,7 +300,7 @@
 			{
 				"command" : 11,
 				"file" : 1,
-				"line" : 105,
+				"line" : 106,
 				"parent" : 0
 			}
 		]
@@ -444,7 +444,8 @@
 				23,
 				25,
 				27,
-				29
+				29,
+				31
 			]
 		},
 		{
@@ -581,11 +582,11 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "QtBCI_autogen::@6890427a1f51a3e7e1df"
+			"id" : "QtBCI_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "QtBCI_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "QtBCI_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "QtBCI::@6890427a1f51a3e7e1df",
@@ -721,8 +722,8 @@
 			"sourceIndexes" : 
 			[
 				0,
-				30,
-				31
+				32,
+				33
 			]
 		},
 		{
@@ -742,7 +743,8 @@
 				23,
 				25,
 				27,
-				29
+				29,
+				31
 			]
 		},
 		{
@@ -762,7 +764,8 @@
 				22,
 				24,
 				26,
-				28
+				28,
+				30
 			]
 		},
 		{
@@ -776,7 +779,7 @@
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				32
+				34
 			]
 		}
 	],
@@ -818,13 +821,13 @@
 		},
 		{
 			"backtrace" : 4,
-			"path" : "core/databuffer.h",
+			"path" : "core/pictureandalgbuffer.h",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "core/databuffer.cpp",
+			"path" : "core/pictureandalgbuffer.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -946,6 +949,17 @@
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
 			"path" : "thinkgear/thinkgearlinktester.cpp",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"path" : "core/csvlogworker.h",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "core/csvlogworker.cpp",
 			"sourceGroupIndex" : 1
 		},
 		{

@@ -54,7 +54,9 @@ template <> constexpr inline auto ThinkGearLinkTester::qt_create_metaobjectdata<
         "frame",
         "onParseWarning",
         "onPortError",
-        "onTick1s"
+        "onTick1s",
+        "onRawInt16Ready",
+        "raw"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -85,6 +87,10 @@ template <> constexpr inline auto ThinkGearLinkTester::qt_create_metaobjectdata<
         }}),
         // Slot 'onTick1s'
         QtMocHelpers::SlotData<void()>(16, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'onRawInt16Ready'
+        QtMocHelpers::SlotData<void(qint16)>(17, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Short, 18 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -115,6 +121,7 @@ void ThinkGearLinkTester::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         case 4: _t->onParseWarning((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
         case 5: _t->onPortError((*reinterpret_cast<std::add_pointer_t<QString>>(_a[1]))); break;
         case 6: _t->onTick1s(); break;
+        case 7: _t->onRawInt16Ready((*reinterpret_cast<std::add_pointer_t<qint16>>(_a[1]))); break;
         default: ;
         }
     }
@@ -145,14 +152,14 @@ int ThinkGearLinkTester::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 8)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 7;
+        _id -= 8;
     }
     return _id;
 }

@@ -8,6 +8,8 @@ QtBCI_autogen/timestamp: \
 	D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
 	D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
 	D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/build/Desktop_Qt_6_10_2_MinGW_64_bit-Debug/QtBCI_autogen/moc_predefs.h \
+	D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/csvlogworker.cpp \
+	D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/csvlogworker.h \
 	D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/logwbuffer.cpp \
 	D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/logwbuffer.h \
 	D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/pictureandalgbuffer.cpp \
@@ -41,6 +43,7 @@ QtBCI_autogen/timestamp: \
 	D:/qt/6.10.2/mingw_64/include/QtCore/QDebug \
 	D:/qt/6.10.2/mingw_64/include/QtCore/QElapsedTimer \
 	D:/qt/6.10.2/mingw_64/include/QtCore/QEvent \
+	D:/qt/6.10.2/mingw_64/include/QtCore/QFile \
 	D:/qt/6.10.2/mingw_64/include/QtCore/QFlags \
 	D:/qt/6.10.2/mingw_64/include/QtCore/QHash \
 	D:/qt/6.10.2/mingw_64/include/QtCore/QList \
@@ -61,6 +64,8 @@ QtBCI_autogen/timestamp: \
 	D:/qt/6.10.2/mingw_64/include/QtCore/QStack \
 	D:/qt/6.10.2/mingw_64/include/QtCore/QString \
 	D:/qt/6.10.2/mingw_64/include/QtCore/QStringList \
+	D:/qt/6.10.2/mingw_64/include/QtCore/QTextStream \
+	D:/qt/6.10.2/mingw_64/include/QtCore/QThread \
 	D:/qt/6.10.2/mingw_64/include/QtCore/QTimeZone \
 	D:/qt/6.10.2/mingw_64/include/QtCore/QTimer \
 	D:/qt/6.10.2/mingw_64/include/QtCore/QVariant \

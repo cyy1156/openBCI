@@ -31,7 +31,8 @@ signals:
     /** 0x80：16 位原始波形（大端，按 qint16 解释） */
 
 
-    void signalQualityReceived(quint8 value);   // 0x02，常见范围 0–200
+    /** 0x02：信号强度 Signal（思知教程；与 Neurosky 资料中的 Poor Signal / 质量 0–200 同源代码字） */
+    void signalQualityReceived(quint8 value);
     void attentionReceived(quint8 value);       // 0x04，0–100
     void meditationReceived(quint8 value);      // 0x05，0–100
     void blinkReceived(quint8 value);           // 0x16，1–255

@@ -3,13 +3,24 @@
 #include"stream_sdk_for_pc/changetest.h"
 #include<stream_sdk_for_pc/origintest.h>
 #include"thinkgear/thinkgearlinktester.h"
+#include "mainwindow.h"
+#include<QApplication>
 int main(int argc, char *argv[])
 
 {
 
     QApplication app(argc, argv);
+    MainWindow w;
 
-    auto *m_linkTester = new ThinkGearLinkTester(&app);
+
+    auto *tester=new ThinkGearLinkTester(&w);
+    w.attachLinkTester(tester);
+    w.show();
+    return app.exec();
+
+
+
+   /* auto *m_linkTester = new ThinkGearLinkTester(&app);
 
     QObject::connect(m_linkTester, &ThinkGearLinkTester::secondReport,
                      m_linkTester,
@@ -29,10 +40,10 @@ int main(int argc, char *argv[])
     // 注意：这里用 start 还是 strat 取决于你头文件最终名字
     m_linkTester->setTargetRawPerSec(256);
     m_linkTester->setTolerance(25);
-    m_linkTester->start("COM7", 57600);
+    m_linkTester->start("COM7", 57600);*/
 
-    return app.exec();
-   /* origintest* test=new origintest();
+    //return app.exec();
+    /*origintest* test=new origintest();
     if(test->m_flag)
     {
         test->run();
@@ -47,6 +58,6 @@ int main(int argc, char *argv[])
    /*threadteast *test;
    test->run();*/
 
-    return 0;
+    //return 0;
 }
 

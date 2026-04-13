@@ -8,7 +8,7 @@
 #include <QMutex>
 #include <QtGlobal>
 struct LogItem {
-    qint64 tsMs = 0;
+    QString tsMs ;
     quint64 seq = 0;
     qint16 rawInt16 = 0;
     double rawUv = 0.0;

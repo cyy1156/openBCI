@@ -350,6 +350,12 @@
 			null
 		],
 		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/csvlogworker.h",
+			"MU",
+			"TAC5DWH4SE/moc_csvlogworker.cpp",
+			null
+		],
+		[
 			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/logwbuffer.h",
 			"MU",
 			"TAC5DWH4SE/moc_logwbuffer.cpp",
@@ -507,6 +513,11 @@
 	[
 		[
 			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/QCustomPlot/qcustomplot.cpp",
+			"MU",
+			null
+		],
+		[
+			"D:/360MoveData/Users/ckgxnn/Desktop/QtBCI/QtBCI/core/csvlogworker.cpp",
 			"MU",
 			null
 		],

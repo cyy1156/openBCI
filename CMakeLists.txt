@@ -29,6 +29,7 @@ qt_add_executable(QtBCI
     thinkgear/thinkgearpayloadparser.h thinkgear/thinkgearpayloadparser.cpp
     thinkgear/rawtouvprocessor.h thinkgear/rawtouvprocessor.cpp
     thinkgear/thinkgearlinktester.h thinkgear/thinkgearlinktester.cpp
+    core/csvlogworker.h core/csvlogworker.cpp
 
 
 )

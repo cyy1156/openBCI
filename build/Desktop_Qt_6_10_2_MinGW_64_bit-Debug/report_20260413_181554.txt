@@ -1,0 +1,7 @@
+测试开始：等待每秒统计...
+[1] raw/s=250 frame/s=251 warn/s=0 pass=OK
+[2] raw/s=250 frame/s=251 warn/s=0 pass=OK
+[3] raw/s=243 frame/s=244 warn/s=0 pass=OK
+[4] raw/s=243 frame/s=244 warn/s=0 pass=OK
+[5] raw/s=251 frame/s=252 warn/s=0 pass=OK
+[6] raw/s=243 frame/s=244 warn/s=0 pass=OK
